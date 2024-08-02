@@ -2,7 +2,6 @@ package models
 
 import (
 	"context"
-	"encoding/json"
 
 	"github.com/edony-ink/log"
 	"github.com/sashabaranov/go-openai"
@@ -17,10 +16,12 @@ func ListModels(mentis *mentis.Mentis) ([]openai.Model, error) {
 		return nil, err
 	}
 
-	for _, model := range models.Models {
-		data, _ := json.MarshalIndent(model, "", " ")
-		log.Infof("%+s", data)
-	}
+	/*
+		for _, model := range models.Models {
+			data, _ := json.MarshalIndent(model, "", " ")
+			log.Infof("%+s", data)
+		}
+	*/
 
 	return models.Models, nil
 }
