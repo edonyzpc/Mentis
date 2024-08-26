@@ -25,6 +25,14 @@ try:
 except ImportError:
     ChatAnthropic = None
 
+try:
+    from langchain_community.llms.tongyi import Tongyi as Qwen
+except ImportError:
+    Qwen = None
+try:
+    from langchain_community.chat_models.tongyi import ChatTongyi
+except ImportError:
+    ChatTongyi = None
 
 try:
     from gen_ai_hub.proxy.langchain.init_models import (
@@ -162,11 +170,28 @@ class GoogleConfig(APIProviderConfig):
         )
 
 
+class QwenConfig(APIProviderConfig):
+    api_key: str
+    models: Optional[Dict[str, ModelConfig | None]] = {
+        "qwen-max": ModelConfig(context_window=200000),
+        "qwen-plus": ModelConfig(context_window=200000),
+        "qwen-turbo": ModelConfig(context_window=200000),
+    }
+
+    def create_model_instance(self, model_name: str, **kwargs) -> BaseLanguageModel:
+        return (
+            ChatTongyi(model=model_name, dashscope_api_key=self.api_key, **kwargs)
+            if ChatTongyi
+            else None
+        )
+
+
 class APIConfig(BaseModel):
     gen_ai_hub: Optional[GenAIHubConfig] = None
     openai: Optional[OpenAIConfig] = None
     google: Optional[GoogleConfig] = None
     anthropic: Optional[AnthropicConfig] = None
+    qwen: Optional[QwenConfig] = None
 
     def _create_config_files(self):
         if self.gen_ai_hub:
