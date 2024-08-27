@@ -17,7 +17,8 @@ clean:
 	rm -rf ./bin/logging/*
 
 dev-console:
-	textual console --port 7342
+# ignore the system and event logs
+	textual console -x SYSTEM -x EVENT --port 7342
 
 debug-mentis:
 	textual run --dev  mentis.textual_ui.app:run --port 7342
