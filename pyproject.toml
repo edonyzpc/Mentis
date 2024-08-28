@@ -1,0 +1,80 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Mentis"
+version = "0.0.1"
+description = "A LLM-based app for attack surface management."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "edonyzpc", email = "edonyzpc@edony.ink" }]
+maintainers = [{ name = "edonyzpc", email = "edonyzpc@edony.ink" }]
+keywords = [
+  "attack surface",
+  "gpt",
+  "chat",
+  "llm",
+  "chatgpt",
+  "langchain",
+  "openai",
+  "sap",
+  "textual",
+  "textual-dev",
+  "terminal",
+  "polars",
+]
+requires-python = ">= 3.10"
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "httpx",
+  "humanize",
+  "langchain",
+  "langchain-core",
+  "polars",
+  "pydantic",
+  "pyperclip",
+  "rich",
+  "shortuuid",
+  "textual",
+  "textual-dev",
+  "tiktoken",
+  "toolong",
+  "pyyaml",
+  "setuptools",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/edonyzpc/Mentis"
+"Repository" = "https://github.com/edonyzpc/Mentis"
+
+[project.optional-dependencies]
+openai = ["langchain-openai"]
+google = ["langchain-google-genai"]
+sap = ["generative-ai-hub-sdk"]
+anthropic = ["langchain-anthropic"]
+qwen = ["langchain-community", "dashscope"]
+all = [
+  "langchain-openai",
+  "langchain-google-genai",
+  "generative-ai-hub-sdk",
+  "langchain-anthropic",
+  "langchain-community",
+  "dashscope",
+]
+
+[project.scripts]
+mentis = "mentis.textual_ui.app:run"
+
+[project.entry-points.mentis_function]
+google_web_search = "mentis.runtime.function_calling.functions:google_web_search"
+
+[tool.setuptools.package-data]
+"*" = ["*.tcss"]
