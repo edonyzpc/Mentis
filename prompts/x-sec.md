@@ -14,3 +14,4 @@ Your task:
 Requirements:
 1. the vulnerabilities to list must be real vulnerabilities that can be used in the given scenario
 2. score according to cvss criteria, and give the score details according to cvss criteria
+3. given the markdown  LaTeX format scoring formula details
