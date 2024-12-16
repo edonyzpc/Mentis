@@ -41,3 +41,9 @@ dist/
 
 # MacOS
 **.DS_Store
+
+# local data files
+**/notebook/data/keentune-bench-3.0.0
+**/notebook/data/keentune-target-3.2.0
+**/notebook/data/keentune-brain-3.0.0
+**/notebook/reports
