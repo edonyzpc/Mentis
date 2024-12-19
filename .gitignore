@@ -46,4 +46,6 @@ dist/
 **/notebook/data/keentune-bench-3.0.0
 **/notebook/data/keentune-target-3.2.0
 **/notebook/data/keentune-brain-3.0.0
+**/notebook/data/keentuned-3.2.0
+**/notebook/data/keentune-ui-3.0.0
 **/notebook/reports
