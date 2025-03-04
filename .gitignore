@@ -50,3 +50,4 @@ dist/
 **/notebook/data/keentune-ui-3.0.0
 **/notebook/data/sysom-3.3.0
 **/notebook/reports
+**.db
